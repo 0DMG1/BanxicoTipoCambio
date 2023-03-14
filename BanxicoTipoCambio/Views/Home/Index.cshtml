@@ -1,0 +1,29 @@
+﻿@model BanxicoTipoCambio.Api_Banxico.Response
+@{
+    ViewData["Title"] = "Tipo cambio monetario";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tipo de cambio Banxico</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @foreach (var s in Model.seriesResponse.series.Where(x=> x.Data != null))
+    {
+        <p>
+            <strong>ID:</strong> <code>@s.IdSerie</code>
+            <strong>Titulo:</strong> <code>@s.Title</code>
+            <strong>Datos:</strong>
+            @foreach (var ds in s.Data)
+            {
+                <div>
+                    <p>
+                    Data --> @ds?.Data
+                    Fecha --> @ds?.Date
+                    </p>
+                </div>
+            }
+           
+        </p>
+    }
+
+</div>
