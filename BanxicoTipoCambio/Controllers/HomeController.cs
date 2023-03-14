@@ -17,7 +17,7 @@ namespace BanxicoTipoCambio.Controllers
         public IActionResult Index()
         {
             BanxicoClient banxicoAPi = new BanxicoClient("52d0db3a102f9749f9b8d4e105d84b6c30be875726d917c3fbef092168867a61");
-
+            ViewBag.Fecha = DateTime.Now.ToShortDateString();
             return View(banxicoAPi.Respuesta);
         }
 
